@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.ingenieriasoftware.demo_t2.controllers.RegisterController">
+   <children>
+      <TextField fx:id="txtNombreR" layoutX="226.0" layoutY="82.0" promptText="Nombre" />
+      <TextField fx:id="txtEdadR" layoutX="226.0" layoutY="129.0" promptText="Edad" />
+      <TextField fx:id="txtEmailR" layoutX="226.0" layoutY="175.0" promptText="Email" />
+      <PasswordField fx:id="txtContraR" layoutX="226.0" layoutY="218.0" promptText="Contraseña" />
+      <Button fx:id="btnRegistrarUsuario" layoutX="269.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleRegister" style="-fx-border-style: solid; -fx-border-color: #000000; -fx-border-width: 0 0 2 0; -fx-text-fill: #000000;" text="Registrar" />
+      <Label layoutX="170.0" layoutY="34.0" prefHeight="27.0" prefWidth="261.0" text="BEINVENIDO POR PRIMERA VEZ" textOverrun="LEADING_ELLIPSIS">
+         <font>
+            <Font size="18.0" />
+         </font></Label>
+      <PasswordField fx:id="txtContraRC" layoutX="226.0" layoutY="263.0" promptText="Confirmar contraseña" />
+   </children>
+</AnchorPane>

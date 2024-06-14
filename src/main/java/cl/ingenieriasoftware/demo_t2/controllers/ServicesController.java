@@ -9,10 +9,8 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 
 import java.util.List;
 
@@ -40,7 +38,7 @@ public class ServicesController {
 
     private Services service;
 
-    public ServicesController(){
+    public ServicesController() {
         this.service = new ServiceImpl();
     }
 
@@ -65,23 +63,37 @@ public class ServicesController {
         TablePrecio.setCellValueFactory(cellData -> new ReadOnlyObjectWrapper<>(cellData.getValue().getPrecio()));
     }
 
+    private boolean showConfirmationDialog(String message) {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Confirmación");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+
+        ButtonType buttonTypeYes = new ButtonType("Sí");
+        ButtonType buttonTypeNo = new ButtonType("No", ButtonBar.ButtonData.CANCEL_CLOSE);
+
+        alert.getButtonTypes().setAll(buttonTypeYes, buttonTypeNo);
+
+        return alert.showAndWait().orElse(buttonTypeNo) == buttonTypeYes;
+    }
+
     @FXML
     private void handleAddService() {
         String nombre = AddNombre.getText();
         String precioText = AddPrecio.getText();
 
         if (nombre.isEmpty()) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El nombre del servicio no puede estar vacío");
+            AlertMessage.show(AlertType.ERROR, "Error", "El nombre del servicio no puede estar vacío");
             return;
         }
 
         if (service.ExistService(nombre)) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "Este nombre de servicio ya existe");
+            AlertMessage.show(AlertType.ERROR, "Error", "Este nombre de servicio ya existe");
             return;
         }
 
         if (precioText.isEmpty()) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El precio del servicio no puede estar vacío");
+            AlertMessage.show(AlertType.ERROR, "Error", "El precio del servicio no puede estar vacío");
             return;
         }
 
@@ -89,19 +101,23 @@ public class ServicesController {
         try {
             precio = Integer.parseInt(precioText);
         } catch (NumberFormatException e) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El precio debe ser un número");
+            AlertMessage.show(AlertType.ERROR, "Error", "El precio debe ser un número");
             return;
         }
 
         if (precio < 300) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El precio del servicio no puede ser inferior a 300 pesos");
+            AlertMessage.show(AlertType.ERROR, "Error", "El precio del servicio no puede ser inferior a 300 pesos");
             return;
         }
 
-        service.AddService(nombre, precio);
-        loadServices();
-        AddNombre.clear();
-        AddPrecio.clear();
+        if (showConfirmationDialog("¿Está seguro que desea agregar este servicio?")) {
+            if (showConfirmationDialog("¿Realmente está seguro?")) {
+                service.AddService(nombre, precio);
+                loadServices();
+                AddNombre.clear();
+                AddPrecio.clear();
+            }
+        }
     }
 
     @FXML
@@ -109,7 +125,7 @@ public class ServicesController {
         String idText = DeleteId.getText();
 
         if (idText.isEmpty()) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El ID del servicio no puede estar vacío");
+            AlertMessage.show(AlertType.ERROR, "Error", "El ID del servicio no puede estar vacío");
             return;
         }
 
@@ -117,37 +133,41 @@ public class ServicesController {
         try {
             id = Integer.parseInt(idText);
         } catch (NumberFormatException e) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El ID debe ser un número");
+            AlertMessage.show(AlertType.ERROR, "Error", "El ID debe ser un número");
             return;
         }
 
-        if (service.DeleteService(id)) {
-            loadServices();
-            AlertMessage.show(Alert.AlertType.INFORMATION, "SUCESS", "Servicio eliminado con éxito");
-        } else {
-            AlertMessage.show(Alert.AlertType.ERROR, "ERROR", "Servicio no pudo eliminarse");
+        if (showConfirmationDialog("¿Está seguro que desea eliminar este servicio?")) {
+            if (showConfirmationDialog("¿Realmente está seguro?")) {
+                if (service.DeleteService(id)) {
+                    loadServices();
+                    AlertMessage.show(AlertType.INFORMATION, "SUCCESS", "Servicio eliminado con éxito");
+                } else {
+                    AlertMessage.show(AlertType.ERROR, "ERROR", "Servicio no pudo eliminarse");
+                }
+                DeleteId.clear();
+            }
         }
-        DeleteId.clear();
     }
 
     @FXML
-    private void handleEditService(){
+    private void handleEditService() {
         String idText = UpdateId.getText();
         String nombre = UpdateNombre.getText();
         String precioText = UpdatePrecio.getText();
 
         if (idText.isEmpty()) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El ID del servicio no puede estar vacío");
+            AlertMessage.show(AlertType.ERROR, "Error", "El ID del servicio no puede estar vacío");
             return;
         }
 
         if (nombre.isEmpty()) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El nombre del servicio no puede estar vacío");
+            AlertMessage.show(AlertType.ERROR, "Error", "El nombre del servicio no puede estar vacío");
             return;
         }
 
         if (precioText.isEmpty()) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El precio del servicio no puede estar vacío");
+            AlertMessage.show(AlertType.ERROR, "Error", "El precio del servicio no puede estar vacío");
             return;
         }
 
@@ -155,23 +175,27 @@ public class ServicesController {
         try {
             id = Integer.parseInt(idText);
         } catch (NumberFormatException e) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El ID debe ser un número");
+            AlertMessage.show(AlertType.ERROR, "Error", "El ID debe ser un número");
             return;
         }
 
         try {
             precio = Integer.parseInt(precioText);
         } catch (NumberFormatException e) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El precio debe ser un número");
+            AlertMessage.show(AlertType.ERROR, "Error", "El precio debe ser un número");
             return;
         }
 
         if (precio < 300) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "El precio del servicio no puede ser inferior a 300 pesos");
+            AlertMessage.show(AlertType.ERROR, "Error", "El precio del servicio no puede ser inferior a 300 pesos");
             return;
         }
 
-        service.EditService(id, precio, nombre);
-        loadServices();
+        if (showConfirmationDialog("¿Está seguro que desea editar este servicio?")) {
+            if (showConfirmationDialog("¿Realmente está seguro?")) {
+                service.EditService(id, precio, nombre);
+                loadServices();
+            }
+        }
     }
 }

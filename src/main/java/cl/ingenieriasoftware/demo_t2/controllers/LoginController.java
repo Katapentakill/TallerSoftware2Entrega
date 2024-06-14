@@ -60,7 +60,7 @@ public class LoginController {
             AlertMessage.show(Alert.AlertType.ERROR, "Error", "Usuario no registrado o contraseña incorrecta");
             return;
         }
-        ApiService.login("atapia25","890456");
+        ApiService.login("fhamen26","123789");
         Users usu = userService.GetUserByEmail(username);
         if (usu.isEsJefeDeLocal()) {
             FXMLLoader loader = new FXMLLoader(DemoApplication.class.getResource("administrar-servicios-view.fxml"));

@@ -4,28 +4,76 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.ingenieriasoftware.demo_t2.controllers.ServicesController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D6C1DE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.ingenieriasoftware.demo_t2.controllers.ServicesController">
     <children>
+        <!-- Imagen en la parte superior -->
+        <ImageView fitHeight="393.0" fitWidth="231.0" layoutX="1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/Universo.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="393.0" fitWidth="231.0" layoutX="375.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/Universo.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="393.0" fitWidth="231.0" layoutX="225.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/Universo.png" />
+            </image>
+        </ImageView>
+
+        <!-- Imagen en la parte inferior -->
+        <ImageView fitHeight="454.0" fitWidth="232.0" layoutX="138.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/Nubes.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="412.0" fitWidth="275.0" layoutX="1.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/Nubes.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="454.0" fitWidth="232.0" layoutX="365.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/Nubes.png" />
+            </image>
+        </ImageView>
+
+        <!-- Imagen en la parte superior izquierda -->
+        <ImageView fitHeight="140.0" fitWidth="117.0" layoutX="14.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/Kirby1.png" />
+            </image>
+        </ImageView>
+
         <!-- Lista de Servicios -->
-        <TableView fx:id="TableAdmin" layoutX="15.0" layoutY="246.0" prefHeight="140.0" prefWidth="568.0">
+        <TableView fx:id="TableAdmin" layoutX="25.0" layoutY="218.0" prefHeight="140.0" prefWidth="568.0">
             <columns>
                 <!-- Columnas -->
                 <TableColumn fx:id="TableId" prefWidth="60.0" text="ID" />
-                <TableColumn fx:id="TableNombre" prefWidth="274.0" text="Nombre" />
                 <TableColumn fx:id="TablePrecio" prefWidth="232.0" text="Precio" />
+                <TableColumn fx:id="TableNombre" prefWidth="274.0" text="Nombre" />
             </columns>
         </TableView>
 
         <!-- Campos de Agregar Servicio -->
-        <Label layoutX="44.0" layoutY="55.0" text="Nombre:" />
-        <TextField fx:id="AddNombre" layoutX="114.0" layoutY="51.0" promptText="Nombre Servicio" />
-        <Label layoutX="281.0" layoutY="55.0" text="Precio:" />
-        <TextField fx:id="AddPrecio" layoutX="332.0" layoutY="51.0" promptText="Ingrese el precio" />
-        <Button fx:id="btnAddService" layoutX="508.0" layoutY="51.0" mnemonicParsing="false" onAction="#handleAddService" text="Agregar" />
-
+        <Label layoutX="11.0" layoutY="45.0" text="Nombre:" />
+        <TextField fx:id="AddNombre" layoutX="74.0" layoutY="43.0" promptText="Nombre Servicio" />
+        <Label layoutX="17.0" layoutY="79.0" text="Precio:" />
+        <TextField fx:id="AddPrecio" layoutX="74.0" layoutY="77.0" promptText="Ingrese el precio" />
+        <Button fx:id="btnAddService" layoutX="109.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleAddService" text="Agregar">
+            <graphic>
+                <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images/Agregar.png" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
         <!-- Etiqueta de Lista de Servicios -->
-        <Label layoutX="243.0" layoutY="219.0" text="Lista de Servicios" />
-        <Button fx:id="btnEditarServicio" layoutX="508.0" layoutY="129.0" mnemonicParsing="false" onAction="#handleEditService" text="Editar">
+        <Label layoutX="246.0" layoutY="183.0" text="Lista de Servicios" />
+        <Button fx:id="btnEditarServicio" layoutX="486.0" layoutY="148.0" mnemonicParsing="false" onAction="#handleEditService" text="Editar">
             <graphic>
                 <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -34,11 +82,11 @@
                 </ImageView>
             </graphic>
         </Button>
-        <TextField fx:id="UpdateId" layoutX="114.0" layoutY="129.0" prefHeight="25.0" prefWidth="80.0" promptText="ID" />
-        <TextField fx:id="UpdateNombre" layoutX="248.0" layoutY="129.0" prefHeight="25.0" prefWidth="80.0" promptText="Nombre Servicio" />
-        <TextField fx:id="UpdatePrecio" layoutX="401.0" layoutY="129.0" prefHeight="25.0" prefWidth="80.0" promptText="Precio" />
-        <TextField fx:id="DeleteId" layoutX="248.0" layoutY="188.0" prefHeight="25.0" prefWidth="80.0" promptText="ID" />
-        <Button fx:id="btnEliminarServicio" layoutX="348.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleDeleteService" text="Eliminar">
+        <TextField fx:id="UpdateId" layoutX="469.0" layoutY="42.0" prefHeight="25.0" prefWidth="102.0" promptText="ID" />
+        <TextField fx:id="UpdateNombre" layoutX="468.0" layoutY="78.0" prefHeight="25.0" prefWidth="102.0" promptText="Nombre Servicio" />
+        <TextField fx:id="UpdatePrecio" layoutX="467.0" layoutY="116.0" prefHeight="25.0" prefWidth="102.0" promptText="Precio" />
+        <TextField fx:id="DeleteId" layoutX="269.0" layoutY="42.0" prefHeight="25.0" prefWidth="80.0" promptText="ID" />
+        <Button fx:id="btnEliminarServicio" layoutX="269.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleDeleteService" text="Eliminar">
             <graphic>
                 <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -47,8 +95,12 @@
                 </ImageView>
             </graphic>
         </Button>
-        <Label layoutX="245.0" layoutY="26.0" text="Agregar Servicio" />
-        <Label layoutX="251.0" layoutY="100.0" text="Editar Servicio" textAlignment="CENTER" />
-        <Label layoutX="245.0" layoutY="162.0" text="Eliminar Servicio" />
+        <Label layoutX="101.0" layoutY="6.0" text="Agregar Servicio" />
+        <Label layoutX="481.0" layoutY="7.0" text="Editar Servicio" textAlignment="CENTER" />
+        <Label layoutX="265.0" layoutY="7.0" text="Eliminar Servicio" />
+        <Label layoutX="246.0" layoutY="46.0" text="ID:" />
+        <Label layoutX="445.0" layoutY="46.0" text="ID:" />
+        <Label layoutX="369.0" layoutY="82.0" text="Nombre Servicio:" />
+        <Label layoutX="424.0" layoutY="120.0" text="Precio:" />
     </children>
 </AnchorPane>

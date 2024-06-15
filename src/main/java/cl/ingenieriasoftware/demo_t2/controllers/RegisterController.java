@@ -1,34 +1,39 @@
 package cl.ingenieriasoftware.demo_t2.controllers;
 
-import cl.ingenieriasoftware.demo_t2.Util.AlertMessage;
-import cl.ingenieriasoftware.demo_t2.services.UserService;
-import cl.ingenieriasoftware.demo_t2.services.UserServiceImpl;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import cl.ingenieriasoftware.demo_t2.Util.AlertMessage;   // Utilidad para mostrar alertas
+import cl.ingenieriasoftware.demo_t2.services.UserService;   // Servicio de usuario
+import cl.ingenieriasoftware.demo_t2.services.UserServiceImpl;   // Implementación del servicio de usuario
+import javafx.event.ActionEvent;   // Evento de acción de JavaFX
+import javafx.fxml.FXML;   // Anotación para vincular con elementos del archivo FXML
+import javafx.scene.control.Alert;   // Clase de alerta de JavaFX
+import javafx.scene.control.PasswordField;   // Campo de contraseña de JavaFX
+import javafx.scene.control.TextField;   // Campo de texto de JavaFX
 
 public class RegisterController {
 
-    private UserService userService;
-    @FXML
-    private TextField txtNombreR;
-    @FXML
-    private TextField txtEdadR;
-    @FXML
-    private TextField txtEmailR;
-    @FXML
-    private PasswordField txtContraR;
-    @FXML
-    private PasswordField txtContraRC;
+    private UserService userService;   // Servicio para la lógica de registro de usuarios
 
+    // Elementos de la interfaz vinculados desde el archivo FXML
+    @FXML
+    private TextField txtNombreR;   // Campo de texto para el nombre
+    @FXML
+    private TextField txtEdadR;   // Campo de texto para la edad
+    @FXML
+    private TextField txtEmailR;   // Campo de texto para el correo electrónico
+    @FXML
+    private PasswordField txtContraR;   // Campo de contraseña para la contraseña
+    @FXML
+    private PasswordField txtContraRC;   // Campo de contraseña para repetir la contraseña
+
+    // Constructor del controlador que inicializa el servicio de usuario
     public RegisterController(){
         this.userService = UserServiceImpl.getInstance();
     }
 
+    // Método manejador de evento para el registro de usuario
     @FXML
     public void handleRegister(ActionEvent event){
+        // Obtener los valores ingresados por el usuario
         String nombre = txtNombreR.getText();
         String edadString = txtEdadR.getText();
         String email = txtEmailR.getText();
@@ -84,7 +89,7 @@ public class RegisterController {
             return;
         }
 
-        // Registrar usuario
+        // Registrar usuario si pasa todas las validaciones
         userService.registerUser(nombre, edad, email, contra);
         AlertMessage.show(Alert.AlertType.INFORMATION, "Success", "Usuario registrado con éxito");
     }

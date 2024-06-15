@@ -4,6 +4,7 @@ module cl.ingenieriasoftware.demo_t {
     requires java.net.http;
     requires com.google.gson;
     requires java.desktop;
+    requires junit;
 
     opens cl.ingenieriasoftware.demo_t2 to javafx.fxml;
     opens cl.ingenieriasoftware.demo_t2.controllers to javafx.fxml;

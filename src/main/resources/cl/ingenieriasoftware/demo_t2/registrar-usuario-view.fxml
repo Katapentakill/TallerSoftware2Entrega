@@ -7,33 +7,23 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #A9D8E4;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.ingenieriasoftware.demo_t2.controllers.RegisterController">
    <children>
-      <!-- Imagen de fondo acuático en la parte inferior -->
-      <ImageView fitHeight="281.0" fitWidth="600.0" layoutX="0.0" layoutY="119.0" pickOnBounds="true" preserveRatio="false">
-         <image>
-            <Image url="@images/FondoAcuatico.png" />
-         </image>
-      </ImageView>
+
 
       <!-- Imagen de la medusa en la esquina superior izquierda -->
-      <ImageView fitHeight="118.0" fitWidth="136.0" layoutX="-17.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="118.0" fitWidth="136.0" layoutX="6.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/Medusa.png" />
+            <Image url="@images/medusa.png" />
          </image>
       </ImageView>
 
-      <!-- Imagen del auto en la esquina inferior derecha -->
-      <ImageView fitHeight="85.0" fitWidth="123.0" layoutX="170.0" layoutY="292.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/AutoBobEsponja.png" />
-         </image>
-      </ImageView>
+
 
       <TextField fx:id="txtNombreR" layoutX="226.0" layoutY="82.0" promptText="Nombre" />
       <TextField fx:id="txtEdadR" layoutX="226.0" layoutY="129.0" promptText="Edad" />
       <TextField fx:id="txtEmailR" layoutX="226.0" layoutY="175.0" promptText="Email" />
       <PasswordField fx:id="txtContraR" layoutX="226.0" layoutY="218.0" promptText="Contraseña" />
       <PasswordField fx:id="txtContraRC" layoutX="226.0" layoutY="263.0" promptText="Confirmar contraseña" />
-      <Button fx:id="btnRegistrarUsuario" layoutX="269.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleRegister" style="-fx-border-style: solid; -fx-border-color: #000000; -fx-border-width: 0 0 2 0; -fx-text-fill: #000000;" text="Registrar" />
+      <Button fx:id="btnRegistrarUsuario" layoutX="269.0" layoutY="316.0" mnemonicParsing="false" onAction="#handleRegister" style="-fx-background-color: #D6C1DE; -fx-border-width: 0 0 2 0; -fx-text-fill: #000000;" text="Registrar" />
       <Label layoutX="170.0" layoutY="34.0" prefHeight="27.0" prefWidth="261.0" text="BIENVENIDO POR PRIMERA VEZ" textOverrun="LEADING_ELLIPSIS">
          <font>
             <Font size="18.0" />

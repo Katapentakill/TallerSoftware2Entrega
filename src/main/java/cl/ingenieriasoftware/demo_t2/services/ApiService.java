@@ -13,7 +13,7 @@ public class ApiService {
     private static String token;
     private static final String BASE_URL = "https://idonosob.pythonanywhere.com";
 
-    public static void login(String username, String password) throws IOException, InterruptedException {
+    public static String login(String username, String password) throws IOException, InterruptedException {
         String loginUrl = BASE_URL + "/login";
 
         String requestBody = String.format("{\"username\":\"%s\",\"password\":\"%s\"}", username, password);
@@ -31,13 +31,14 @@ public class ApiService {
         JsonObject responseBodyJson = gson.fromJson(response.body(), JsonObject.class);
 
         if (response.statusCode() == 200) {
-            token = responseBodyJson.get("access_token").getAsString();
-            System.out.println("Token: " + token); // Imprimir el token en la terminal
+            String token = responseBodyJson.get("access_token").getAsString();
+            return token;
         } else {
             String errorMessage = responseBodyJson.get("msg").getAsString();
             throw new IOException(errorMessage);
         }
     }
+
 
     public static boolean validarTarjeta(String numeroTarjeta, int mesVencimiento, int anioVencimiento, int codigoSeguridad) throws IOException, InterruptedException {
         String validarTarjetaUrl = BASE_URL + "/validar_tarjeta";

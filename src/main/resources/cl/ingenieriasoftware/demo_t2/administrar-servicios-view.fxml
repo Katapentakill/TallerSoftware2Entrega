@@ -6,54 +6,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #D6C1DE;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.ingenieriasoftware.demo_t2.controllers.ServicesController">
     <children>
-        <!-- Imagen en la parte superior -->
-        <ImageView fitHeight="393.0" fitWidth="231.0" layoutX="1.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/Universo.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="393.0" fitWidth="231.0" layoutX="375.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/Universo.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="393.0" fitWidth="231.0" layoutX="225.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/Universo.png" />
-            </image>
-        </ImageView>
-
-        <!-- Imagen en la parte inferior -->
-        <ImageView fitHeight="454.0" fitWidth="232.0" layoutX="138.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/Nubes.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="412.0" fitWidth="275.0" layoutX="1.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/Nubes.png" />
-            </image>
-        </ImageView>
-        <ImageView fitHeight="454.0" fitWidth="232.0" layoutX="365.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/Nubes.png" />
-            </image>
-        </ImageView>
-
-        <!-- Imagen en la parte superior izquierda -->
-        <ImageView fitHeight="140.0" fitWidth="117.0" layoutX="14.0" layoutY="91.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-                <Image url="@images/Kirby1.png" />
-            </image>
-        </ImageView>
-
         <!-- Lista de Servicios -->
-        <TableView fx:id="TableAdmin" layoutX="25.0" layoutY="218.0" prefHeight="140.0" prefWidth="568.0">
+        <TableView fx:id="TableAdmin" layoutX="25.0" layoutY="218.0" prefHeight="140.0" prefWidth="568.0" style="-fx-background-color: #C9E8B8;">
             <columns>
                 <!-- Columnas -->
-                <TableColumn fx:id="TableId" prefWidth="60.0" text="ID" />
-                <TableColumn fx:id="TablePrecio" prefWidth="232.0" text="Precio" />
-                <TableColumn fx:id="TableNombre" prefWidth="274.0" text="Nombre" />
+                <TableColumn fx:id="TableId" prefWidth="60.0" text="ID" style="-fx-background-color: #A9D8E4;"/>
+                <TableColumn fx:id="TablePrecio" prefWidth="232.0" text="Precio" style="-fx-background-color: #A9D8E4;"/>
+                <TableColumn fx:id="TableNombre" prefWidth="274.0" text="Nombre" style="-fx-background-color: #A9D8E4;"/>
             </columns>
         </TableView>
 
@@ -62,7 +21,7 @@
         <TextField fx:id="AddNombre" layoutX="74.0" layoutY="43.0" promptText="Nombre Servicio" />
         <Label layoutX="17.0" layoutY="79.0" text="Precio:" />
         <TextField fx:id="AddPrecio" layoutX="74.0" layoutY="77.0" promptText="Ingrese el precio" />
-        <Button fx:id="btnAddService" layoutX="109.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleAddService" text="Agregar">
+        <Button fx:id="btnAddService" layoutX="109.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleAddService" text="Agregar" style="-fx-background-color: #A9D8E4;">
             <graphic>
                 <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -73,7 +32,7 @@
         </Button>
         <!-- Etiqueta de Lista de Servicios -->
         <Label layoutX="246.0" layoutY="183.0" text="Lista de Servicios" />
-        <Button fx:id="btnEditarServicio" layoutX="486.0" layoutY="148.0" mnemonicParsing="false" onAction="#handleEditService" text="Editar">
+        <Button fx:id="btnEditarServicio" layoutX="486.0" layoutY="148.0" mnemonicParsing="false" onAction="#handleEditService" text="Editar" style="-fx-background-color: #A9D8E4;">
             <graphic>
                 <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>
@@ -86,7 +45,7 @@
         <TextField fx:id="UpdateNombre" layoutX="468.0" layoutY="78.0" prefHeight="25.0" prefWidth="102.0" promptText="Nombre Servicio" />
         <TextField fx:id="UpdatePrecio" layoutX="467.0" layoutY="116.0" prefHeight="25.0" prefWidth="102.0" promptText="Precio" />
         <TextField fx:id="DeleteId" layoutX="269.0" layoutY="42.0" prefHeight="25.0" prefWidth="80.0" promptText="ID" />
-        <Button fx:id="btnEliminarServicio" layoutX="269.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleDeleteService" text="Eliminar">
+        <Button fx:id="btnEliminarServicio" layoutX="269.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleDeleteService" text="Eliminar" style="-fx-background-color: #A9D8E4;">
             <graphic>
                 <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
                     <image>

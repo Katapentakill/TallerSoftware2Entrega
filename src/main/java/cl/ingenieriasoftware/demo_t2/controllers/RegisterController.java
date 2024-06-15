@@ -24,7 +24,7 @@ public class RegisterController {
     private PasswordField txtContraRC;
 
     public RegisterController(){
-        this.userService = new UserServiceImpl();
+        this.userService = UserServiceImpl.getInstance();
     }
 
     @FXML

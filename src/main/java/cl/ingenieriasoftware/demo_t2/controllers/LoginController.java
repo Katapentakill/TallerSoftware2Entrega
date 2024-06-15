@@ -33,9 +33,8 @@ public class LoginController {
     private Label btnRegistrar;
 
     public LoginController() {
-        this.userService = new UserServiceImpl();
+        this.userService = UserServiceImpl.getInstance();
     }
-
     @FXML
     private void handleLogin(ActionEvent event) throws IOException, InterruptedException {
         String username = txtUsuario.getText();

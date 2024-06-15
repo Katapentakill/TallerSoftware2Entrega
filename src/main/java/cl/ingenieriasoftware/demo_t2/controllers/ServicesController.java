@@ -39,7 +39,7 @@ public class ServicesController {
     private Services service;
 
     public ServicesController() {
-        this.service = new ServiceImpl();
+        this.service = ServiceImpl.getInstance();
     }
 
     public void initialize() {

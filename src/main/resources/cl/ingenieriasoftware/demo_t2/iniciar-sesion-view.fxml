@@ -10,21 +10,7 @@
       <!-- Imagen del sol en la esquina superior derecha -->
       <ImageView fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/Sol.png" />
-         </image>
-      </ImageView>
-
-      <!-- Imagen de arena en la parte inferior -->
-      <ImageView fitHeight="186.0" fitWidth="600.0" layoutX="0.0" layoutY="214.0" pickOnBounds="true" preserveRatio="false">
-         <image>
-            <Image url="@images/Arena.png" />
-         </image>
-      </ImageView>
-
-      <!-- Imagen del auto en el centro -->
-      <ImageView fitHeight="100.0" fitWidth="149.0" layoutX="500.0" layoutY="299.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@images/Auto.png" />
+            <Image url="@images/sol.png" />
          </image>
       </ImageView>
 
@@ -38,7 +24,7 @@
             <Font size="14.0" />
          </font>
       </PasswordField>
-      <Button fx:id="btnAcceder" layoutX="250.0" layoutY="275.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="100.0" style=" -fx-border-radius: 5;" text="Acceder">
+      <Button fx:id="btnAcceder" layoutX="250.0" layoutY="275.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="40.0" prefWidth="100.0" style=" -fx-background-color: #FDEAB3; -fx-border-radius: 5;" text="Acceder">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -48,6 +34,6 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Label fx:id="btnRegistrar" layoutX="271.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#handleRegisterClick" style="-fx-border-style: solid; -fx-border-color: #000000; -fx-border-width: 0 0 2 0;" text="Registrarse" />
+      <Label fx:id="btnRegistrar" layoutX="271.0" layoutY="330.0" mnemonicParsing="false" onMouseClicked="#handleRegisterClick" style="-fx-background-color: #FDEAB3; -fx-border-width: 0 0 2 0;" text="Registrarse" />
    </children>
 </AnchorPane>

@@ -14,6 +14,7 @@ public class Users {
     private List<Giftcard> giftcards;
     private String creditCard;
     private int puntos;
+    private String Token;
 
     public Users(String nombre, int edad, String correo, String contraseña) {
         this.id = ++counter;
@@ -24,9 +25,17 @@ public class Users {
         this.esJefeDeLocal = false;
         this.giftcards = new ArrayList<>();
         this.puntos = 0;
+        this.Token = "";
     }
 
     // Getters y setters
+    public String getToken() {
+        return Token;
+    }
+
+    public void setToken(String Tok) {
+        this.Token = Tok;
+    }
 
     public int getId() {
         return id;

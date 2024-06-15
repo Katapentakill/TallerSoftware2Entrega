@@ -62,7 +62,7 @@ public class RegisterController {
         try {
             edad = Integer.parseInt(edadString);
         } catch (NumberFormatException e) {
-            AlertMessage.show(Alert.AlertType.ERROR, "Error", "La edad debe ser numérica");
+            AlertMessage.show(Alert.AlertType.ERROR, "Error", "La edad debe ser numérica, Ej: 22");
             return;
         }
 

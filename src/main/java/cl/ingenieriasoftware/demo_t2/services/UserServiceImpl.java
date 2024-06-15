@@ -6,7 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserServiceImpl implements UserService{
+
+    private static UserServiceImpl instance;
     private static List<Users> usuarios = new ArrayList<>();
+
+    private UserServiceImpl() {}
+
+    public static synchronized UserServiceImpl getInstance() {
+        if (instance == null) {
+            instance = new UserServiceImpl();
+        }
+        return instance;
+    }
 
     public void Admin(){
         String nombre = "Esteban";

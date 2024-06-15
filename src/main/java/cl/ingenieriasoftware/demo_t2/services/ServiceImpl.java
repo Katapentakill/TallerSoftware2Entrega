@@ -7,8 +7,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ServiceImpl implements Services {
-
+    private static ServiceImpl instance;
     private static List<Service> services = new ArrayList<>();
+
+    private ServiceImpl() {}
+
+    public static synchronized ServiceImpl getInstance() {
+        if (instance == null) {
+            instance = new ServiceImpl();
+        }
+        return instance;
+    }
 
     public void SeedServices(){
         String nombre = "Lavado Exterior";

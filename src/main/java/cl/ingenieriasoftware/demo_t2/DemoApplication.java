@@ -12,7 +12,7 @@ import java.io.IOException;
 public class DemoApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException, InterruptedException {
-        UserService userService = new UserServiceImpl();
+        UserService userService = UserServiceImpl.getInstance();
         userService.Admin();
         FXMLLoader fxmlLoader = new FXMLLoader(DemoApplication.class.getResource("iniciar-sesion-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());

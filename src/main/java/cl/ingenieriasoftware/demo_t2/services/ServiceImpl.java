@@ -13,7 +13,7 @@ public class ServiceImpl implements Services {
     private static List<Service> services = new ArrayList<>();
 
     // Private constructor to prevent instantiation
-    private ServiceImpl() {}
+    public ServiceImpl() {}
 
     // Singleton getInstance method
     public static synchronized ServiceImpl getInstance() {

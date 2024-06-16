@@ -1,14 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="cl.ingenieriasoftware.demo_t2.controllers.giftcardComprarController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="440.0" prefWidth="654.0" style="-fx-background-color: #F7C3B6;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cl.ingenieriasoftware.demo_t2.controllers.giftcardComprarController">
+    <children>
+        <Label layoutX="229.0" layoutY="14.0" prefHeight="27.0" prefWidth="142.0" text="Comprar Giftcard">
+            <font>
+                <Font size="18.0" />
+            </font></Label>
+        <Label layoutX="78.0" layoutY="58.0" prefHeight="25.0" prefWidth="157.0" text="Seleccionar servicio(s)">
+            <font>
+                <Font size="16.0" />
+            </font>
+        </Label>
+        <ListView fx:id="servicesListView" layoutX="4.0" layoutY="90.0" prefHeight="284.0" prefWidth="304.0" style="-fx-background-color: #C9E8B8;" />
+        <Label layoutX="230.0" layoutY="388.0" text="Monto Total:">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Label layoutX="341.0" layoutY="58.0" text="Método de Pago:">
+            <font>
+                <Font size="16.0" />
+            </font></Label>
+        <RadioButton fx:id="creditCardRadioButton" layoutX="343.0" layoutY="90.0" mnemonicParsing="false" text="Tarjeta de Crédito">
+            <toggleGroup>
+                <ToggleGroup fx:id="metodoDePago" />
+            </toggleGroup>
+            <font>
+                <Font size="14.0" />
+            </font></RadioButton>
+        <RadioButton fx:id="pointsRadioButton" layoutX="343.0" layoutY="117.0" mnemonicParsing="false" text="Puntos" toggleGroup="$metodoDePago">
+            <font>
+                <Font size="14.0" />
+            </font></RadioButton>
+        <VBox fx:id="creditCardDetailsVBox" layoutX="343.0" layoutY="150.0" prefHeight="200.0" prefWidth="273.0" visible="false">
+            <children>
+                <Label text="Número de Tarjeta:">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Label>
+                <TextField fx:id="cardNumberTextField">
+                    <font>
+                        <Font size="14.0" />
+                    </font></TextField>
+                <Label text="Nombre del Titular:">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Label>
+                <TextField fx:id="cardHolderNameTextField">
+                    <font>
+                        <Font size="14.0" />
+                    </font></TextField>
+                <Label text="Fecha de Vencimiento (MM/AAAA):">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Label>
+                <HBox>
+                    <TextField fx:id="cardExpiryMonthTextField" prefWidth="40.0">
+                        <font>
+                            <Font size="14.0" />
+                        </font></TextField>
+                    <Label text="/">
+                        <font>
+                            <Font size="14.0" />
+                        </font></Label>
+                    <TextField fx:id="cardExpiryYearTextField" prefHeight="30.0" prefWidth="69.0">
+                        <font>
+                            <Font size="14.0" />
+                        </font></TextField>
+                </HBox>
+                <Label text="Código de Seguridad:">
+                    <font>
+                        <Font size="14.0" />
+                    </font></Label>
+                <TextField fx:id="cardSecurityCodeTextField">
+                    <font>
+                        <Font size="14.0" />
+                    </font></TextField>
+            </children>
+        </VBox>
+        <Button layoutX="543.0" layoutY="383.0" onAction="#handleBuyGiftcard" style="-fx-background-color: #C9E8B8;" text="Comprar">
+            <font>
+                <Font size="14.0" />
+            </font></Button>
+        <Label fx:id="totalAmountLabel" layoutX="324.0" layoutY="388.0" prefHeight="20.0" prefWidth="157.0" style="-fx-background-color: #C9E8B8;" text="\$">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>
+

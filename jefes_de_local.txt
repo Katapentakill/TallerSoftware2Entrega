@@ -1,3 +1,0 @@
-Esteban,50,Esteban@gmail.com,1234
-María,45,maria@example.com,5678
-Juan,55,juan@example.com,abcd

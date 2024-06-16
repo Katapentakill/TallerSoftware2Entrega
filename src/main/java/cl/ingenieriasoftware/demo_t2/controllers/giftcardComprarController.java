@@ -20,25 +20,25 @@ import java.util.stream.Collectors;
 
 public class giftcardComprarController {
     @FXML
-    private ListView<CheckBox> servicesListView;
+    public ListView<CheckBox> servicesListView;
     @FXML
-    private Label totalAmountLabel;
+    public Label totalAmountLabel;
     @FXML
-    private RadioButton creditCardRadioButton;
+    public RadioButton creditCardRadioButton;
     @FXML
-    private RadioButton pointsRadioButton;
+    public RadioButton pointsRadioButton;
     @FXML
     private VBox creditCardDetailsVBox;
     @FXML
-    private TextField cardNumberTextField;
+    public TextField cardNumberTextField;
     @FXML
-    private TextField cardHolderNameTextField;
+    public TextField cardHolderNameTextField;
     @FXML
-    private TextField cardExpiryMonthTextField;
+    public TextField cardExpiryMonthTextField;
     @FXML
-    private TextField cardExpiryYearTextField;
+    public TextField cardExpiryYearTextField;
     @FXML
-    private TextField cardSecurityCodeTextField;
+    public TextField cardSecurityCodeTextField;
     @FXML
     private ToggleGroup metodoDePago;
 
@@ -84,7 +84,7 @@ public class giftcardComprarController {
     /**
      * Actualiza el monto total basado en los servicios seleccionados.
      */
-    private void updateTotalAmount() {
+    public void updateTotalAmount() {
         double totalAmount = servicesListView.getItems().stream()
                 .filter(CheckBox::isSelected)
                 .mapToDouble(this::extractPrice)
@@ -98,7 +98,7 @@ public class giftcardComprarController {
      * @param checkBox CheckBox que contiene la información del servicio.
      * @return Precio del servicio.
      */
-    private double extractPrice(CheckBox checkBox){
+    public double extractPrice(CheckBox checkBox){
         String text = checkBox.getText();
         int firstSpaceIndex = text.indexOf(' ');
 

@@ -44,4 +44,10 @@ public interface UserService {
      * @return Objeto Users correspondiente al usuario encontrado, o null si no se encuentra
      */
     Users GetUserByEmail(String email);
+
+    /**
+     * Método para limpiar la lista de usuarios
+     */
+    void clearUsuarios();
+
 }

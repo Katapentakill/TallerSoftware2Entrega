@@ -11,7 +11,6 @@ import com.google.gson.JsonObject;
 
 public class ApiService {
 
-    private static String token;  // Token de autenticación, inicializado a null por defecto
     private static final String BASE_URL = "https://idonosob.pythonanywhere.com";  // URL base de la API
 
     /**
@@ -66,7 +65,7 @@ public class ApiService {
      * @throws IOException Si ocurre un error de comunicación.
      * @throws InterruptedException Si la solicitud es interrumpida.
      */
-    public static boolean validarTarjeta(String numeroTarjeta, int mesVencimiento, int anioVencimiento, int codigoSeguridad)
+    public static boolean validarTarjeta(String numeroTarjeta, int mesVencimiento, int anioVencimiento, int codigoSeguridad, String token)
             throws IOException, InterruptedException {
         String validarTarjetaUrl = BASE_URL + "/validar_tarjeta";  // URL para la validación de tarjeta
 
@@ -115,7 +114,7 @@ public class ApiService {
      * @throws IOException Si ocurre un error de comunicación.
      * @throws InterruptedException Si la solicitud es interrumpida.
      */
-    public static double obtenerSaldo(String numeroTarjeta, int mesVencimiento, int anioVencimiento, int codigoSeguridad)
+    public static double obtenerSaldo(String numeroTarjeta, int mesVencimiento, int anioVencimiento, int codigoSeguridad, String token)
             throws IOException, InterruptedException {
         String obtenerSaldoUrl = BASE_URL + "/obtener_saldo";  // URL para obtener el saldo
 
@@ -164,7 +163,7 @@ public class ApiService {
      * @throws InterruptedException Si la solicitud es interrumpida.
      */
     public static void realizarCargo(String numeroTarjeta, String monto, String descripcion, int mesVencimiento,
-                                     int anioVencimiento, int codigoSeguridad) throws IOException, InterruptedException {
+                                     int anioVencimiento, int codigoSeguridad, String token) throws IOException, InterruptedException {
         String realizarCargoUrl = BASE_URL + "/realizar_cargo";  // URL para realizar el cargo
 
         // Construir el cuerpo de la solicitud en formato JSON

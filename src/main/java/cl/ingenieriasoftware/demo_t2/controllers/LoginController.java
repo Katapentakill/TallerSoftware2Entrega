@@ -91,6 +91,8 @@ public class LoginController {
             // Si no es jefe de local, cargar la vista para comprar giftcard
             FXMLLoader loader = new FXMLLoader(DemoApplication.class.getResource("comprar-giftcard-view.fxml"));
             Parent root = loader.load();   // Cargar la interfaz
+            giftcardComprarController controller = loader.getController();
+            controller.setLoggedInUser(usu);
             Stage stage = new Stage();   // Crear una nueva ventana
             stage.setScene(new Scene(root));   // Establecer la escena con la interfaz cargada
             stage.setTitle("Comprar giftcard");   // Establecer el título de la ventana

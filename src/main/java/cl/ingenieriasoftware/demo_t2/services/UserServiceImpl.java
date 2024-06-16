@@ -102,4 +102,8 @@ public class UserServiceImpl implements UserService {
         }
         return null;  // Retornar null si no se encuentra ningún usuario con el email proporcionado
     }
+
+    public void clearUsuarios() {
+        usuarios.clear();
+    }
 }

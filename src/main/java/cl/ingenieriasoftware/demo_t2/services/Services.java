@@ -59,4 +59,9 @@ public interface Services {
      * @return true si ya existe un servicio con ese nombre, false de lo contrario
      */
     boolean ExistService(String nombre);
+
+    /**
+     * Método para limpiar la lista de servicios
+     */
+    void clearServices();
 }

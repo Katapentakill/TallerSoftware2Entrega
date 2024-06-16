@@ -97,4 +97,8 @@ public class ServiceImpl implements Services {
         }
         return false; // Service with the given name not found
     }
+
+    public void clearServices() {
+        services.clear();
+    }
 }
